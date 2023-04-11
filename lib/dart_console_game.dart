@@ -8,6 +8,7 @@ void main(List<String> arguments) {
     final userInput = MainCommands(stdin.readLineSync());
     final command = userInput.checkCommand();
     if(command == null) continue;
+    if(command.shouldShowHelpInfo()) continue;
     command.execute();
   }
 }

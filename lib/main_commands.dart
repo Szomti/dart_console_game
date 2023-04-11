@@ -11,7 +11,7 @@ class MainCommands {
       case 'get':
         return GetCommand(command: command);
       case 'quit':
-        return QuitCommand();
+        return QuitCommand(command: command);
       case 'help':
         return HelpCommand(command: command);
       case 'clear':
