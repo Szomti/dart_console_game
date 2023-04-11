@@ -1,11 +1,11 @@
-library command;
-
-part './get_command.dart';
+part of command;
 
 abstract class Command {
   final String command;
 
   Command({required this.command});
 
-  void doAction();
+  Iterable<String> get args => command.split(' ');
+
+  void execute();
 }

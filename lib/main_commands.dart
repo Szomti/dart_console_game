@@ -1,20 +1,23 @@
+import 'commands/command_library.dart';
+
 class MainCommands {
   final String command;
 
   MainCommands(String? command) : command = command?.toLowerCase() ?? '';
 
-  bool get valid => checkCommand();
-
-  bool checkCommand() {
+  Command? checkCommand() {
     final action = command.split(' ');
     switch(action[0]){
       case 'get':
-        return true;
+        return GetCommand(command: command);
       case 'quit':
-
-        return true;
+        return QuitCommand();
+      case 'help':
+        return HelpCommand(command: command);
+      case 'clear':
+        return ClearCommand(command: command);
       default:
-        return false;
+        return null;
     }
   }
 }

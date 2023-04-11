@@ -4,8 +4,10 @@ import 'package:dart_console_game/main_commands.dart';
 
 void main(List<String> arguments) {
   while(true){
+    stdout.write('Player: ');
     final userInput = MainCommands(stdin.readLineSync());
-    if(!userInput.valid) continue;
-    userInput.checkCommand();
+    final command = userInput.checkCommand();
+    if(command == null) continue;
+    command.execute();
   }
 }
