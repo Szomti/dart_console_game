@@ -10,7 +10,9 @@ class ClearCommand extends Command {
           'What do you want me to do with "${command.replaceFirst('clear ', '')}"?');
     }
     print('-- "Cleared" --');
-    print('\n\n\n\n\n\n\n\n\n\n');
+    for(int i = 1;i<=10;i++){
+      print('\n\n\n\n\n\n\n\n\n\n');
+    }
   }
 
   @override

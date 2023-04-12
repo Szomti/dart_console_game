@@ -2,6 +2,7 @@ library entity;
 
 import 'package:uuid/uuid.dart';
 
+import '../models/inventory/player_inventory.dart';
 import '../statuses/damage_status.dart';
 
 part './entity.dart';

@@ -5,8 +5,25 @@ class GetCommand extends Command {
 
   @override
   void execute() {
-    // TODO: implement execute
-    print(args.elementAt(1));
+    final item = args.elementAt(1);
+    if(item == 'all') {
+      print(ItemsList.all);
+      return;
+    }
+    switch(item){
+      case LogItemEntity.name:
+        return LogItemEntity().get();
+      case 'inventory':
+        print('here'); // TODO delete this later
+        for(final item in Player().inventory){
+          print('nameId: ${item.nameId}');
+          print('amount: ${item.amount}');
+          print('maxStack: ${item.maxStack}');
+        }
+        break;
+      default:
+        break;
+    }
   }
 
   @override

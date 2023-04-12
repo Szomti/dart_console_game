@@ -2,6 +2,8 @@ library command;
 
 import 'dart:io';
 
+import 'package:dart_console_game/entities/entity_library.dart';
+import 'package:dart_console_game/entities/items/items_list.dart';
 import 'package:dart_console_game/main_commands.dart';
 import 'package:dart_console_game/models/help/help_info_type.dart';
 

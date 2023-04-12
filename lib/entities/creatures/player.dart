@@ -9,9 +9,13 @@ class Player extends CreatureEntity {
   static const int _baseSpeed = 5;
   static const double _baseDefense = 1.02;
   static const double _baseLuck = 1.0;
+  static final Player _instance = Player._();
 
-  Player()
-      : super(
+  PlayerInventory inventory;
+
+  Player._()
+      : inventory = PlayerInventory(),
+        super(
           health: _baseHealth,
           damage: DamageStatus(
             min: _baseMinDmg,
@@ -24,10 +28,16 @@ class Player extends CreatureEntity {
           luck: _baseLuck,
         );
 
+  factory Player() => _instance;
+
+  void getItem(ItemEntity item) {
+    inventory.add(item);
+  }
+
   @override
   int attack() {
     // TODO more complicated
-    return ((damage.min+damage.max) * 0.5).toInt();
+    return ((damage.min + damage.max) * 0.5).toInt();
   }
 
   @override
