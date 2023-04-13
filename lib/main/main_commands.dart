@@ -1,4 +1,4 @@
-import 'models/commands/command_library.dart';
+import '../models/commands/command_library.dart';
 
 class MainCommands {
   final String command;

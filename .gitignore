@@ -3,8 +3,8 @@
 .idea/
 .vscode
 .packages
-dart_console_game.exe
 pubspec.lock
+lib/main/dart_console_game.exe
 
 # Conventional directory for build output.
 build/

@@ -1,8 +1,9 @@
 import 'dart:io';
 
-import 'package:dart_console_game/main_commands.dart';
 import 'package:dart_console_game/models/entities/entity_library.dart';
 import 'package:dart_console_game/models/game/game.dart';
+
+import 'main_commands.dart';
 
 void main(List<String> arguments) {
   Game().introduction();
