@@ -21,9 +21,9 @@ class HelpInfo {
   }
 
   bool containsAnywhere(String text) {
-    return command.contains(text) ||
-        info.contains(text) ||
-        type.text.contains(text);
+    return command.toLowerCase().contains(text) ||
+        info.toLowerCase().contains(text) ||
+        type.text.toLowerCase().contains(text);
   }
 
   String toOneLine() => '$command - $info';

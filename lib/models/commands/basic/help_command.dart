@@ -2,7 +2,6 @@ part of command;
 
 class HelpCommand extends Command {
   static const name = 'help';
-  static const _baseSearchIndex = 1;
   static const _baseCommandHelpIndex = 1;
   static final commands = <HelpInfo>[
     QuitCommand(command: '').helpInfo,
@@ -15,10 +14,10 @@ class HelpCommand extends Command {
 
   @override
   void execute() {
+    final search = args.toList()..removeAt(0);
     final filtered = args.length > 1
-        ? commands.where((element) => element.containsAnywhere(
-              args.elementAt(_baseSearchIndex),
-            ))
+        ? commands
+            .where((element) => element.containsAnywhere(search.join(' ')))
         : commands;
     final sortedList = filtered.sorted(
       (a, b) => a.type.text.compareTo(b.type.text),
@@ -47,8 +46,10 @@ class HelpCommand extends Command {
       final command = MainCommands(
         args.elementAt(_baseCommandHelpIndex),
       ).toCommand();
-      if (command != null) command.helpInfo.show();
-      return true;
+      if (command != null) {
+        command.helpInfo.show();
+        return true;
+      }
     }
     return false;
   }
