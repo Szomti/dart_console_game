@@ -6,22 +6,24 @@ class GetCommand extends Command {
   @override
   void execute() {
     final item = args.elementAt(1);
-    if(item == 'all') {
+    if (item == 'all') {
       print(ItemsList.all);
       return;
     }
-    switch(item){
+    switch (item) {
       case LogItem.name:
         return LogItem().get();
       case StoneItem.name:
         return StoneItem().get();
+      case HerbItem.name:
+        return HerbItem().get();
       case 'inventory':
         // TODO delete this later
-        for(final item in Player().inventory){
-          print('nameId: ${item.nameId}');
-          print('amount: ${item.amount}');
-          print('maxStack: ${item.maxStack}');
+        print('');
+        for (final item in Player().inventory) {
+          print('${item.nameId}: \n${item.amount}/${item.maxStack}');
         }
+        print('');
         break;
       default:
         break;

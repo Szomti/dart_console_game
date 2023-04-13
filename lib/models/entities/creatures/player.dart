@@ -11,12 +11,11 @@ class Player extends CreatureEntity {
   static const double _baseLuck = 1.0;
   static final Player _instance = Player._();
 
+  String nickname = 'Player';
   PlayerInventory inventory;
-  TerrainPlace currentTerrain;
 
   Player._()
       : inventory = PlayerInventory(),
-        currentTerrain = ForestTerrain(),
         super(
           health: _baseHealth,
           damage: DamageStatus(
@@ -30,10 +29,17 @@ class Player extends CreatureEntity {
           luck: _baseLuck,
         );
 
-  factory Player() => _instance;
+  factory Player({String? nickname}) {
+    if (nickname != null) _instance.nickname = nickname;
+    return _instance;
+  }
 
   void getItem(ItemEntity item) {
     inventory.add(item);
+  }
+
+  void writePlayerName() {
+    stdout.write('$nickname: ');
   }
 
   @override

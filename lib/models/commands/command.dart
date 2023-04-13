@@ -15,9 +15,14 @@ abstract class Command {
 
   bool shouldShowHelpInfo() {
     final result = args.length > 1 && args.elementAt(_helpIndex) == _helpText;
-    if(result) helpInfo.show();
+    if (result) helpInfo.show();
     return result;
   }
 
   void execute();
+
+  void run() {
+    if (command.isEmpty) return;
+    execute();
+  }
 }

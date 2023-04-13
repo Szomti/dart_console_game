@@ -11,16 +11,26 @@ abstract class ItemEntity<T> extends Entity {
     int? maxGet,
     int? maxStack,
     int? amount,
-  }) :  maxGet = maxGet ?? 25,
+  })  : maxGet = maxGet ?? 25,
         maxStack = maxStack ?? 100000,
         amount = amount ?? 0;
 
   void get({int amount = 1}) {
-    Player player = Player();
-    final item = player.currentTerrain.availableItems.firstWhere((element) => element is T);
-    this.amount = Random().nextInt(item.maxGet + 1);
+    if (T == dynamic) {
+      print('Oh, I think I forgot about something...');
+      return;
+    }
+    final item = Game().currentTerrain.availableItems.firstWhereOrNull(
+          (element) => element is T,
+        );
+    if (item == null) {
+      print('Item not available');
+      return;
+    }
+    add(amount: Random().nextInt(item.maxGet + 1));
+    print('Got ${this.amount} $nameId\\s!');
+    if (this.amount == 0) return;
     Player().getItem(this);
-    print('Got ${this.amount} $nameId[s]!');
   }
 
   void add({int amount = 1}) {

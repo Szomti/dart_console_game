@@ -1,14 +1,16 @@
 part of terrain_place;
 
 class ForestTerrain extends TerrainPlace {
+  static final name = 'forest';
   static final ItemsList _availableItems = ItemsList([
-    LogItem(maxGet: 50),
-    StoneItem(maxGet: 10),
-  ]); // TODO fix if player wants item that is not here
+    LogItem(maxGet: 8),
+    StoneItem(maxGet: 3),
+    HerbItem(maxGet: 10),
+  ]);
 
   ForestTerrain()
       : super(
-          placeName: 'forest',
+          placeName: name,
           availableItems: _availableItems,
         );
 }

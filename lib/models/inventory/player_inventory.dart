@@ -1,6 +1,5 @@
-import 'package:dart_console_game/entities/items/items_list.dart';
-
-import '../../entities/entity_library.dart';
+import '../entities/entity_library.dart';
+import '../entities/items/items_list.dart';
 
 class PlayerInventory extends ItemsList {
   static final PlayerInventory _instance = PlayerInventory._();
@@ -14,7 +13,7 @@ class PlayerInventory extends ItemsList {
       items.add(item);
     } else {
       final foundItem = findItem(item);
-      if(foundItem == null) return;
+      if (foundItem == null) return;
       foundItem.add(amount: item.amount);
     }
   }

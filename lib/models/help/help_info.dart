@@ -19,4 +19,12 @@ class HelpInfo {
     print('Info: $info');
     print('');
   }
+
+  bool containsAnywhere(String text) {
+    return command.contains(text) ||
+        info.contains(text) ||
+        type.text.contains(text);
+  }
+
+  String toOneLine() => '$command - $info';
 }

@@ -1,4 +1,4 @@
-import 'commands/command_library.dart';
+import 'models/commands/command_library.dart';
 
 class MainCommands {
   final String command;
@@ -7,7 +7,7 @@ class MainCommands {
 
   Command? checkCommand() {
     final action = command.split(' ');
-    switch(action[0]){
+    switch (action[0]) {
       case 'get':
         return GetCommand(command: command);
       case 'quit':
