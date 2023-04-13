@@ -4,7 +4,7 @@ import '../entity_library.dart';
 
 class ItemsList extends Iterable<ItemEntity> {
   static final List<ItemEntity> all = [
-    LogItemEntity(),
+    LogItem(),
   ];
   final List<ItemEntity> items;
 

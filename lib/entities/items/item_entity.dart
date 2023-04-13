@@ -1,18 +1,27 @@
 part of entity;
 
-abstract class ItemEntity extends Entity {
+abstract class ItemEntity<T> extends Entity {
   final String nameId;
   final int maxStack;
+  final int maxGet;
   int amount;
 
   ItemEntity({
     required this.nameId,
+    int? maxGet,
     int? maxStack,
     int? amount,
-  }) :  maxStack = maxStack ?? 100000,
+  }) :  maxGet = maxGet ?? 25,
+        maxStack = maxStack ?? 100000,
         amount = amount ?? 0;
 
-  void get({int amount = 1});
+  void get({int amount = 1}) {
+    Player player = Player();
+    final item = player.currentTerrain.availableItems.firstWhere((element) => element is T);
+    this.amount = Random().nextInt(item.maxGet + 1);
+    Player().getItem(this);
+    print('Got ${this.amount} $nameId[s]!');
+  }
 
   void add({int amount = 1}) {
     this.amount += amount;

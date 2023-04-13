@@ -11,10 +11,12 @@ class GetCommand extends Command {
       return;
     }
     switch(item){
-      case LogItemEntity.name:
-        return LogItemEntity().get();
+      case LogItem.name:
+        return LogItem().get();
+      case StoneItem.name:
+        return StoneItem().get();
       case 'inventory':
-        print('here'); // TODO delete this later
+        // TODO delete this later
         for(final item in Player().inventory){
           print('nameId: ${item.nameId}');
           print('amount: ${item.amount}');

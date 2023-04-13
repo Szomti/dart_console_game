@@ -12,9 +12,11 @@ class Player extends CreatureEntity {
   static final Player _instance = Player._();
 
   PlayerInventory inventory;
+  TerrainPlace currentTerrain;
 
   Player._()
       : inventory = PlayerInventory(),
+        currentTerrain = ForestTerrain(),
         super(
           health: _baseHealth,
           damage: DamageStatus(
