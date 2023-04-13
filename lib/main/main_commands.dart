@@ -5,16 +5,16 @@ class MainCommands {
 
   MainCommands(String? command) : command = command?.toLowerCase() ?? '';
 
-  Command? checkCommand() {
+  Command? toCommand() {
     final action = command.split(' ');
     switch (action[0]) {
-      case 'get':
+      case GetCommand.name:
         return GetCommand(command: command);
-      case 'quit':
+      case QuitCommand.name:
         return QuitCommand(command: command);
-      case 'help':
+      case HelpCommand.name:
         return HelpCommand(command: command);
-      case 'clear':
+      case ClearCommand.name:
         return ClearCommand(command: command);
       default:
         return null;

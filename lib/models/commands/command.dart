@@ -11,8 +11,6 @@ abstract class Command {
 
   HelpInfo get helpInfo;
 
-  String get prefix;
-
   bool shouldShowHelpInfo() {
     final result = args.length > 1 && args.elementAt(_helpIndex) == _helpText;
     if (result) helpInfo.show();

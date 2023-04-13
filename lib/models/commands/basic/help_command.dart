@@ -1,6 +1,7 @@
 part of command;
 
 class HelpCommand extends Command {
+  static const name = 'help';
   static const _baseSearchIndex = 1;
   static const _baseCommandHelpIndex = 1;
   static final commands = <HelpInfo>[
@@ -34,11 +35,8 @@ class HelpCommand extends Command {
   }
 
   @override
-  String get prefix => 'help';
-
-  @override
   HelpInfo get helpInfo => HelpInfo(
-        command: '$prefix <keyword>',
+        command: '$name <keyword>',
         info: 'list of commands',
         type: HelpInfoType.tools,
       );
@@ -48,7 +46,7 @@ class HelpCommand extends Command {
     if (args.length > 1) {
       final command = MainCommands(
         args.elementAt(_baseCommandHelpIndex),
-      ).checkCommand();
+      ).toCommand();
       if (command != null) command.helpInfo.show();
       return true;
     }

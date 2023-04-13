@@ -10,7 +10,7 @@ void main(List<String> arguments) {
   while (true) {
     Player().writePlayerName();
     final userInput = MainCommands(stdin.readLineSync());
-    final command = userInput.checkCommand();
+    final command = userInput.toCommand();
     if (command == null) continue;
     if (command.shouldShowHelpInfo()) continue;
     command.run();

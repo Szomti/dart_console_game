@@ -1,6 +1,8 @@
 part of command;
 
 class GetCommand extends Command {
+  static const name = 'get';
+
   GetCommand({required super.command});
 
   @override
@@ -31,11 +33,8 @@ class GetCommand extends Command {
   }
 
   @override
-  String get prefix => 'get';
-
-  @override
   HelpInfo get helpInfo => HelpInfo(
-        command: '$prefix <item>',
+        command: '$name <item>',
         info: 'try to get items',
         type: HelpInfoType.gameplay,
       );

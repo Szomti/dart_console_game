@@ -1,6 +1,7 @@
 part of command;
 
 class QuitCommand extends Command {
+  static const name = 'quit';
 
   QuitCommand({required super.command});
 
@@ -10,11 +11,8 @@ class QuitCommand extends Command {
   }
 
   @override
-  String get prefix => 'quit';
-
-  @override
   HelpInfo get helpInfo => HelpInfo(
-        command: prefix,
+        command: name,
         info: 'exit the game',
         type: HelpInfoType.tools,
       );

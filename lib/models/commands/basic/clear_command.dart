@@ -1,6 +1,8 @@
 part of command;
 
 class ClearCommand extends Command {
+  static const name = 'clear';
+
   ClearCommand({required super.command});
 
   @override
@@ -10,17 +12,14 @@ class ClearCommand extends Command {
           'What do you want me to do with "${command.replaceFirst('clear ', '')}"?');
     }
     print('-- "Cleared" --');
-    for(int i = 1;i<=10;i++){
+    for (int i = 1; i <= 10; i++) {
       print('\n\n\n\n\n\n\n\n\n\n');
     }
   }
 
   @override
-  String get prefix => 'clear';
-
-  @override
   HelpInfo get helpInfo => HelpInfo(
-        command: prefix,
+        command: name,
         info: 'clear terminal (not working)',
         type: HelpInfoType.tools,
       );
