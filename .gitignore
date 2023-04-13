@@ -1,8 +1,8 @@
 # Files and directories created by pub.
 .dart_tool/
+.idea/
 .vscode
 .packages
-.idea
 dart_console_game.exe
 pubspec.lock
 
