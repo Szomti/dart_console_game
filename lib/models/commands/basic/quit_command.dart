@@ -16,7 +16,8 @@ class QuitCommand extends Command {
         info: 'exit the game',
         type: HelpInfoType.tools,
       );
-      
+
   @override
-  Command fromCommand({required String command}) => QuitCommand(command: command);
+  Command fromCommand({required String command}) =>
+      QuitCommand(command: command);
 }

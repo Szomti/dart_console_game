@@ -1,7 +1,8 @@
 part of command;
 
-class ExploreCommand extends Command{
+class ExploreCommand extends Command {
   static const name = 'explore';
+
   ExploreCommand({required super.command}) : super(prefix: name);
 
   @override
@@ -17,11 +18,12 @@ class ExploreCommand extends Command{
 
   @override
   HelpInfo get helpInfo => HelpInfo(
-    command: name, 
-    info: 'explore to find new terrains, but watch out for enemies!', 
-    type: HelpInfoType.gameplay,
-  );
+        command: name,
+        info: 'explore to find new terrains, but watch out for enemies!',
+        type: HelpInfoType.gameplay,
+      );
 
   @override
-  Command fromCommand({required String command}) => ExploreCommand(command: command);
+  Command fromCommand({required String command}) =>
+      ExploreCommand(command: command);
 }

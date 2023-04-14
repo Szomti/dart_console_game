@@ -7,7 +7,7 @@ class GetCommand extends Command {
 
   @override
   void execute() {
-    if(!hasArgs) return print('Empty argument');
+    if (!hasArgs) return print('Empty argument');
     final item = args.elementAt(1);
     if (item == 'all') {
       print(ItemsList.all);
@@ -33,5 +33,6 @@ class GetCommand extends Command {
       );
 
   @override
-  Command fromCommand({required String command}) => GetCommand(command: command);
+  Command fromCommand({required String command}) =>
+      GetCommand(command: command);
 }

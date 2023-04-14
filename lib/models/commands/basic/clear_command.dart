@@ -23,7 +23,8 @@ class ClearCommand extends Command {
         info: 'clear terminal (not working)',
         type: HelpInfoType.tools,
       );
-      
+
   @override
-  Command fromCommand({required String command}) => ClearCommand(command: command);
+  Command fromCommand({required String command}) =>
+      ClearCommand(command: command);
 }

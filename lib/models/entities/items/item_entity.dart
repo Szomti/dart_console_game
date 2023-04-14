@@ -27,10 +27,35 @@ abstract class ItemEntity<T> extends Entity {
       print('Item not available');
       return;
     }
+    if (!getMiniGame()) return print('Wrong!');
     add(amount: Random().nextInt(item.maxGet + 1));
     print('Got ${this.amount} $nameId\\s!');
     if (this.amount == 0) return;
     Player().getItem(this);
+  }
+
+  bool getMiniGame() {
+    String answer = '';
+    final firstNum = Random().nextInt(100) + 1;
+    final secondNum = Random().nextInt(100) + 1;
+    Duration duration = Duration(seconds: 10);
+    print('[${duration.inSeconds}s] Solve: $firstNum + $secondNum = ?');
+    answer = stdin.readLineSync() ?? '';
+    Timer.periodic(Duration(milliseconds: 100), (timer) {
+      if (answer.isNotEmpty) {
+        duration = Duration.zero;
+        timer.cancel();
+      }
+    });
+    Future.delayed(
+      duration,
+      () {
+        if (answer.isNotEmpty) return;
+        answer = '';
+      },
+    );
+    if (answer.isEmpty) return false;
+    return (int.tryParse(answer) == firstNum + secondNum);
   }
 
   void add({int amount = 1}) {
