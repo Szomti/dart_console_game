@@ -10,12 +10,16 @@ abstract class Command {
     ClearCommand(command: ''),
     InventoryCommand(command: ''),
     ExploreCommand(command: ''),
+    AvailableCommand(command: ''),
   ];
   final String command;
+  final String prefix;
 
-  Command({required this.command});
+  Command({required this.command, required this.prefix});
 
   Iterable<String> get args => command.split(' ');
+
+  bool get hasArgs => args.length > 1;
 
   String argsString() {
     final result = args.toList()..removeAt(0);
@@ -36,4 +40,6 @@ abstract class Command {
     if (command.isEmpty) return;
     execute();
   }
+
+  Command fromCommand({required String command});
 }

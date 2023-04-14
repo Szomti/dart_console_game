@@ -3,10 +3,11 @@ part of command;
 class GetCommand extends Command {
   static const name = 'get';
 
-  GetCommand({required super.command});
+  GetCommand({required super.command}) : super(prefix: name);
 
   @override
   void execute() {
+    if(!hasArgs) return print('Empty argument');
     final item = args.elementAt(1);
     if (item == 'all') {
       print(ItemsList.all);
@@ -20,7 +21,7 @@ class GetCommand extends Command {
       case HerbItem.name:
         return HerbItem().get();
       default:
-        break;
+        return print('Not found');
     }
   }
 
@@ -30,4 +31,7 @@ class GetCommand extends Command {
         info: 'try to get items',
         type: HelpInfoType.gameplay,
       );
+
+  @override
+  Command fromCommand({required String command}) => GetCommand(command: command);
 }

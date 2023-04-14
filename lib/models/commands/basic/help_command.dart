@@ -5,7 +5,7 @@ class HelpCommand extends Command {
   static const _baseCommandHelpIndex = 1;
   static final Iterable<HelpInfo> commands = Command.fullList.map((e) => e.helpInfo);
 
-  HelpCommand({required super.command});
+  HelpCommand({required super.command}) : super(prefix: name);
 
   @override
   void execute() {
@@ -28,7 +28,6 @@ class HelpCommand extends Command {
       }
       print(item.toOneLine());
     }
-    print('');
   }
 
   @override
@@ -51,4 +50,8 @@ class HelpCommand extends Command {
     }
     return false;
   }
+
+  @override
+  Command fromCommand({required String command}) => HelpCommand(command: command);
+  
 }

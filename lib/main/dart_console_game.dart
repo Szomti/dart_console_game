@@ -14,5 +14,6 @@ void main(List<String> arguments) {
     if (command == null) continue;
     if (command.shouldShowHelpInfo()) continue;
     command.run();
+    print('');
   }
 }

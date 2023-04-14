@@ -1,8 +1,11 @@
 library command;
 
+import 'dart:async';
 import 'dart:io';
 import 'dart:math';
+import 'dart:mirrors';
 
+import 'package:characters/characters.dart';
 import 'package:collection/collection.dart';
 import 'package:dart_console_game/extensions/random_extension.dart';
 import 'package:dart_console_game/models/help/help_info_type.dart';
@@ -21,3 +24,4 @@ part './gameplay/get_command.dart';
 part 'command.dart';
 part './gameplay/inventory_command.dart';
 part './gameplay/explore_command.dart';
+part './basic/available_command.dart';

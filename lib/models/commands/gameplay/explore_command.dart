@@ -2,7 +2,7 @@ part of command;
 
 class ExploreCommand extends Command{
   static const name = 'explore';
-  ExploreCommand({required super.command});
+  ExploreCommand({required super.command}) : super(prefix: name);
 
   @override
   void execute() {
@@ -22,4 +22,6 @@ class ExploreCommand extends Command{
     type: HelpInfoType.gameplay,
   );
 
+  @override
+  Command fromCommand({required String command}) => ExploreCommand(command: command);
 }

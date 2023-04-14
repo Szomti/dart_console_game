@@ -3,7 +3,7 @@ part of command;
 class ClearCommand extends Command {
   static const name = 'clear';
 
-  ClearCommand({required super.command});
+  ClearCommand({required super.command}) : super(prefix: name);
 
   @override
   void execute() {
@@ -23,4 +23,7 @@ class ClearCommand extends Command {
         info: 'clear terminal (not working)',
         type: HelpInfoType.tools,
       );
+      
+  @override
+  Command fromCommand({required String command}) => ClearCommand(command: command);
 }

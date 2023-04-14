@@ -7,21 +7,11 @@ class MainCommands {
 
   Command? toCommand() {
     final action = command.split(' ');
-    switch (action[0]) {
-      case GetCommand.name:
-        return GetCommand(command: command);
-      case QuitCommand.name:
-        return QuitCommand(command: command);
-      case HelpCommand.name:
-        return HelpCommand(command: command);
-      case ClearCommand.name:
-        return ClearCommand(command: command);
-      case InventoryCommand.name:
-        return InventoryCommand(command: command);
-      case ExploreCommand.name:
-        return ExploreCommand(command: command);
-      default:
-        return null;
+    for(final commandObj in Command.fullList){
+      if(commandObj.prefix.toLowerCase() == action[0]){
+        return commandObj.fromCommand(command: command);
+      }
     }
+    return null;
   }
 }
