@@ -19,14 +19,6 @@ class GetCommand extends Command {
         return StoneItem().get();
       case HerbItem.name:
         return HerbItem().get();
-      case 'inventory':
-        // TODO delete this later
-        print('');
-        for (final item in Player().inventory) {
-          print('${item.nameId}: \n${item.amount}/${item.maxStack}');
-        }
-        print('');
-        break;
       default:
         break;
     }

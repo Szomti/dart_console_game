@@ -16,6 +16,8 @@ class MainCommands {
         return HelpCommand(command: command);
       case ClearCommand.name:
         return ClearCommand(command: command);
+      case InventoryCommand.name:
+        return InventoryCommand(command: command);
       default:
         return null;
     }

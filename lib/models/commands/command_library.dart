@@ -15,3 +15,4 @@ part './basic/help_command.dart';
 part './basic/quit_command.dart';
 part './gameplay/get_command.dart';
 part 'command.dart';
+part './gameplay/inventory_command.dart';

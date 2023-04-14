@@ -14,10 +14,9 @@ class HelpCommand extends Command {
 
   @override
   void execute() {
-    final search = args.toList()..removeAt(0);
-    final filtered = args.length > 1
+    final filtered = argsString().isNotEmpty
         ? commands
-            .where((element) => element.containsAnywhere(search.join(' ')))
+            .where((element) => element.containsAnywhere(argsString()))
         : commands;
     final sortedList = filtered.sorted(
       (a, b) => a.type.text.compareTo(b.type.text),
@@ -35,7 +34,7 @@ class HelpCommand extends Command {
 
   @override
   HelpInfo get helpInfo => HelpInfo(
-        command: '$name <keyword>',
+        command: '$name <search>',
         info: 'list of commands',
         type: HelpInfoType.tools,
       );

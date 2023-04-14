@@ -9,6 +9,11 @@ abstract class Command {
 
   Iterable<String> get args => command.split(' ');
 
+  String argsString() {
+    final result = args.toList()..removeAt(0);
+    return result.join(' ');
+  }
+
   HelpInfo get helpInfo;
 
   bool shouldShowHelpInfo() {
