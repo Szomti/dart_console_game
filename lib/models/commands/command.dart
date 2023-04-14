@@ -3,6 +3,14 @@ part of command;
 abstract class Command {
   static const _helpIndex = 1;
   static const _helpText = 'help';
+  static final Iterable<Command> fullList = [
+    QuitCommand(command: ''),
+    HelpCommand(command: ''),
+    GetCommand(command: ''),
+    ClearCommand(command: ''),
+    InventoryCommand(command: ''),
+    ExploreCommand(command: ''),
+  ];
   final String command;
 
   Command({required this.command});

@@ -14,6 +14,10 @@ class Game {
 
   factory Game() => _instance;
 
+  void terrainChange(TerrainPlace terrain) {
+    currentTerrain = terrain;
+  }
+
   void introduction() {
     if (introductionDone) return;
     print('Oh, hey, what are you doing here?');

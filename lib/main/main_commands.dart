@@ -18,6 +18,8 @@ class MainCommands {
         return ClearCommand(command: command);
       case InventoryCommand.name:
         return InventoryCommand(command: command);
+      case ExploreCommand.name:
+        return ExploreCommand(command: command);
       default:
         return null;
     }

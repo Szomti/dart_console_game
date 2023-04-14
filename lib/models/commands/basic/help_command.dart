@@ -3,12 +3,7 @@ part of command;
 class HelpCommand extends Command {
   static const name = 'help';
   static const _baseCommandHelpIndex = 1;
-  static final commands = <HelpInfo>[
-    QuitCommand(command: '').helpInfo,
-    HelpCommand(command: '').helpInfo,
-    GetCommand(command: '').helpInfo,
-    ClearCommand(command: '').helpInfo,
-  ];
+  static final Iterable<HelpInfo> commands = Command.fullList.map((e) => e.helpInfo);
 
   HelpCommand({required super.command});
 
@@ -19,7 +14,11 @@ class HelpCommand extends Command {
             .where((element) => element.containsAnywhere(argsString()))
         : commands;
     final sortedList = filtered.sorted(
-      (a, b) => a.type.text.compareTo(b.type.text),
+      (a, b) {
+        final result = a.type.text.compareTo(b.type.text);
+        if(result != 0) return result;
+        return a.command.compareTo(b.command);
+      } 
     );
     HelpInfoType? infoType;
     for (final item in sortedList) {

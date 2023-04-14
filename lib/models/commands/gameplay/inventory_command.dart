@@ -12,8 +12,9 @@ static const name = 'inventory';
           (element) => element.nameId.toLowerCase().contains(argsString()),
         ) : 
         Player().inventory;
+    final sortedInventory = filteredInvetory.sorted((a, b) => a.nameId.compareTo(b.nameId));
     print('');
-    for (final item in filteredInvetory) {
+    for (final item in sortedInventory) {
       print('${item.nameId}: \n${item.amount}/${item.maxStack}');
     }
     print('');
